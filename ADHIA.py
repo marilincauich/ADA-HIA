@@ -1,77 +1,68 @@
 import streamlit as st
 
-# 1. IMPORTANTE: Esto debe ir al principio para que no de NameError
-# Configuración de la página
+# 1. Configuración de la página (Debe ser el primer comando de Streamlit)
 st.set_page_config(
     page_title="IA en la Salud Mental",
     page_icon="🧠",
     layout="wide"
 )
 
-# --- BARRA LATERAL CON RESÚMENES DETALLADOS ---
+# --- BARRA LATERAL CON RESÚMENES ---
 with st.sidebar:
     st.title("Recursos y Referencias")
-    st.info("**Frase del día:**\n\n *'Que la innovación no sea un conflicto'*") [cite: 2]
+    # Nota: Se eliminó el [cite: 2] que causaba el error
+    st.info("**Frase del día:**\n\n *'Que la innovación no sea un conflicto'*")
     
     st.header("Bibliografía Completa")
-    st.write("Haz clic para expandir los resúmenes científicos:")
-
-    # Referencia 1: Agudelo-Londoño
+    
     with st.expander("Agudelo-Londoño (2025)"):
-        st.write("**Título:** En la era de la IA: ¿conocimiento original y veraz? ")
-        st.write("**Resumen:** Analiza cómo la IA optimiza la edición en salud (revisión de errores), pero advierte sobre la pérdida de originalidad y la generación de referencias falsas. ")
+        st.write("**Resumen:** Analiza el impacto de la IA en la edición académica de salud. Destaca que optimiza la revisión de manuscritos, pero advierte sobre riesgos éticos como la pérdida de originalidad.")
 
-    # Referencia 2: Beg et al.
     with st.expander("Beg et al. (2024)"):
-        st.write("**Título:** Artificial Intelligence for Psychotherapy ")
-        st.write("**Resumen:** Describe el uso de chatbots y análisis de lenguaje para apoyo continuo. Resalta que, aunque mejora el acceso, no puede reemplazar la empatía humana. ")
+        st.write("**Resumen:** Revisa el uso de chatbots y análisis del lenguaje para apoyo continuo. Resalta que mejora el acceso pero no reemplaza la empatía humana.")
 
-    # Referencia 3: Cruz-Gonzalez et al.
     with st.expander("Cruz-González et al. (2025)"):
-        st.write("**Título:** AI in mental health care: systematic review ")
-        st.write("**Resumen:** Revisa el uso de algoritmos para detectar depresión y ansiedad mediante redes sociales y apps. Subraya la necesidad de supervisión profesional. ")
+        st.write("**Resumen:** Revisión sistemática sobre diagnóstico y monitoreo. La IA ayuda en la detección temprana de depresión y ansiedad mediante datos de redes sociales.")
 
-    # Referencia 4: Gkintoni et al.
     with st.expander("Gkintoni et al. (2025)"):
-        st.write("**Título:** Digital and AI-Enhanced CBT for Insomnia ")
-        st.write("**Resumen:** Explica cómo la IA personaliza el tratamiento del insomnio analizando patrones de sueño nocturnos para ajustar la terapia en tiempo real. ")
+        st.write("**Resumen:** Examina el uso de dCBT potenciada con IA para tratar el insomnio, ajustando el tratamiento según patrones de sueño en tiempo real.")
 
-    # Referencia 5: Luxton
     with st.expander("Luxton (2013)"):
-        st.write("**Título:** AI in Psychological Practice ")
-        st.write("**Resumen:** Pionero en analizar agentes conversacionales para evaluar riesgo de suicidio. Concluye que la IA es una herramienta de apoyo, no un sustituto. ")
+        st.write("**Resumen:** Analiza aplicaciones de IA como agentes conversacionales para la evaluación del riesgo suicida y seguimiento terapéutico.")
 
-# --- CUERPO DEL ARTÍCULO ---
-st.title("¿Un psicólogo en mi bolsillo?") [cite: 1]
+# --- CUERPO DEL DASHBOARD ---
+st.title("¿Un psicólogo en mi bolsillo?")
 st.subheader("Cómo la Inteligencia Artificial está transformando la salud mental")
 
 st.markdown("""
-En los últimos años, la tecnología se ha convertido en una aliada inesperada de nuestra salud emocional[cite: 3]. 
-Hoy, la IA ayuda a identificar señales de ansiedad, depresión e insomnio[cite: 5].
+En los últimos años, la tecnología ha dejado de ser solo una herramienta de comunicación para convertirse en una aliada inesperada de nuestra salud emocional.
 """)
 
-# Sección de Conceptos
+# Secciones de Conceptos
 col1, col2 = st.columns(2)
 with col1:
     st.info("### Machine Learning")
-    st.write("Permite predecir riesgos de recaída emocional analizando miles de datos[cite: 8].")
+    st.write("Las máquinas pueden analizar miles de datos para predecir si una persona está en riesgo de tener una recaída emocional.")
+
 with col2:
     st.success("### Procesamiento de Lenguaje Natural")
-    st.write("Capacidad de 'entender' el sentimiento detrás de las palabras y detectar patrones de tristeza[cite: 9, 10].")
+    st.write("Capacidad de la IA para 'entender' el sentimiento detrás de las palabras y detectar patrones de tristeza.")
 
-# Sección de Aplicaciones
-st.header("Aplicaciones Prácticas")
+# Aplicaciones
+st.header("De la teoría a la práctica")
 tab1, tab2 = st.tabs(["Chatbots", "Terapia Digital (dCBT)"])
-with tab1:
-    st.write("Asistentes disponibles 24/7 para ofrecer apoyo inmediato en casos de ansiedad[cite: 13, 14].")
-with tab2:
-    st.write("Tratamientos para el insomnio que logran cambios reales en el funcionamiento del cerebro[cite: 16, 17].")
 
-# Retos Éticos
-st.warning("### Retos Éticos Irreemplazables")
-st.write("* **Privacidad:** Protección estricta de datos personales[cite: 22].")
-st.write("* **Veracidad:** La información debe ser validada por expertos para evitar datos falsos[cite: 23].")
-st.write("* **Empatía:** La calidez humana de la alianza terapéutica sigue siendo inalcanzable para las máquinas[cite: 24].")
+with tab1:
+    st.write("Sistemas disponibles las 24 horas que han demostrado efectividad para ayudar a personas con depresión y ansiedad.")
+
+with tab2:
+    st.write("Tecnología que ayuda a combatir el insomnio logrando cambios reales en el funcionamiento del cerebro.")
+
+# Ética
+st.warning("### Retos Éticos")
+st.write("- **Privacidad:** La información debe estar protegida bajo leyes estrictas.")
+st.write("- **Veracidad:** Cuidado con la información generada; debe ser validada por expertos.")
+st.write("- **Alianza Terapéutica:** La calidez humana aún no ha sido igualada por la tecnología.")
 
 st.divider()
-st.write("**Conclusión:** El futuro es una combinación entre la precisión del algoritmo y la empatía humana[cite: 28].")
+st.markdown("<div style='text-align: center;'>El futuro es una combinación de la precisión del algoritmo y la empatía humana.</div>", unsafe_allow_html=True)
